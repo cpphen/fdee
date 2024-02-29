@@ -1,6 +1,7 @@
 import React from 'react';
 import type { PropsWithChildren } from 'react';
 import {
+  Button,
   SafeAreaView,
   ScrollView,
   StatusBar,
@@ -48,14 +49,18 @@ function Section({ children, title }: SectionProps): React.JSX.Element {
   );
 }
 
-const HomeScreen = () => {
+const HomeScreen = ({ navigation }: any) => {
   const isDarkMode = useColorScheme() === 'dark';
 
   const backgroundStyle = {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
   };
 
-  return(
+  const handleButtonPress = (e: any) => {
+    navigation.navigate('Graph');
+  }
+
+  return (
     <SafeAreaView style={backgroundStyle}>
       <StatusBar
         barStyle={isDarkMode ? 'light-content' : 'dark-content'}
@@ -69,6 +74,7 @@ const HomeScreen = () => {
           style={{
             backgroundColor: isDarkMode ? Colors.black : Colors.white,
           }}>
+          <Button title='Click This' onPress={handleButtonPress} />
           <Section title="Step One">
             Edit <Text style={styles.highlight}>App.tsxx</Text> to change this
             screen and then come back to see your edits.

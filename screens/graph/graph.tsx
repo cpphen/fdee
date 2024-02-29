@@ -3,6 +3,7 @@ import {
   SafeAreaView,
   ScrollView,
   StatusBar,
+  Text,
   useColorScheme,
   View,
 } from 'react-native';
@@ -31,7 +32,7 @@ const Graph = () => {
           style={{
             backgroundColor: 'blue',
           }}>
-            HIIIIIIIII
+            <Text>HIIIIIIIII</Text>
         </View>
       </ScrollView>
     </SafeAreaView>
