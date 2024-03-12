@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import {
+  Platform,
   SafeAreaView,
   ScrollView,
   StatusBar,
+  StyleSheet,
   Text,
   useColorScheme,
   View,
@@ -19,6 +21,11 @@ const Graph = () => {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
   };
 
+  useEffect(() => {
+    const platform = Platform.OS;
+    console.log('Currnt OS: ', platform);
+  }, [])
+
   return(
     <SafeAreaView style={backgroundStyle}>
       <StatusBar
@@ -32,11 +39,19 @@ const Graph = () => {
           style={{
             backgroundColor: 'blue',
           }}>
-            <Text>HIIIIIIIII</Text>
+            <Text style={styles.text}>Hiii React Native</Text>
         </View>
       </ScrollView>
     </SafeAreaView>
   );
+}
+
+const styles = {
+  text: {
+    color: '#FFFFFF',
+    fontSize: 20,
+    height: 200
+  }
 }
 
 export default Graph;
