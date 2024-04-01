@@ -57,7 +57,30 @@ const HomeScreen = ({ navigation }: any) => {
   };
 
   const handleButtonPress = (e: any) => {
+    console.log('GRAPH');
     navigation.navigate('Graph');
+  }
+
+  const getClientApi = async (e: any) => {
+    console.log('GET Client API');
+    try {
+      const getClientApiResponse = await fetch('192.168.1.64:7158/api/client', {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      });
+
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+      const data = await getClientApiResponse.text();
+      console.log('Data from Client API', data);
+    } catch (error) {
+      console.error('Fetch error:', error);
+      return [];
+    }
+  }
+
+  const getAdminApi = async (e: any) => {
   }
 
   return (
@@ -75,6 +98,18 @@ const HomeScreen = ({ navigation }: any) => {
             backgroundColor: isDarkMode ? Colors.black : Colors.white,
           }}>
           <Button title='Click This' onPress={handleButtonPress} />
+        </View>
+        <View
+          style={{
+            backgroundColor: isDarkMode ? Colors.black : Colors.white,
+          }}>
+          <Button title='Click This to get Client Response' onPress={getClientApi} />
+        </View>
+        <View
+          style={{
+            backgroundColor: isDarkMode ? Colors.black : Colors.white,
+          }}>
+          <Button title='Click This to get Admin Response' onPress={handleButtonPress} />
         </View>
       </ScrollView>
     </SafeAreaView>

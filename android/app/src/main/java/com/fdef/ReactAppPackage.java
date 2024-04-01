@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class MyAppPackage implements ReactPackage {
+public class ReactAppPackage implements ReactPackage {
 
     @Override
     public List<ViewManager> createViewManagers(ReactApplicationContext reactContext) {
@@ -24,5 +24,4 @@ public class MyAppPackage implements ReactPackage {
 
         return modules;
     }
-
 }
