@@ -64,7 +64,7 @@ const HomeScreen = ({ navigation }: any) => {
   const getClientApi = async (e: any) => {
     console.log('GET Client API');
     try {
-      const getClientApiResponse = await fetch('192.168.1.64:7158/api/client', {
+      const getClientApiResponse = await fetch('10.0.2.2:7158/api/client', {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json'
